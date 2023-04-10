@@ -133,7 +133,16 @@ const Customizer = () => {
                   <Tab
                     key={tab.name}
                     tab={tab}
-                    handleClick={() => setActiveEditorTab(tab.name)}
+                    isActiveTab={activeEditorTab === tab.name}
+                    handleClick={() => {
+                      setActiveEditorTab((prevTab) => {
+                        if (prevTab === tab.name) {
+                          return "";
+                        } else {
+                          return tab.name;
+                        }
+                      });
+                    }}
                   />
                 ))}
 
